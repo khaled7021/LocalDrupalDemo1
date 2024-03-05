@@ -1,0 +1,6 @@
+dn_injection.simple_dn_injection_form:
+  path: '/dn_injection-form'
+  defaults:
+    _form: '\Drupal\dn_injection\Form\StudentForm'
+  requirements:
+    _access: 'TRUE' 

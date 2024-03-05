@@ -1,0 +1,13 @@
+services:
+  rss_external_entities.state:
+    class: Drupal\rss_external_entities\State\RssExternalEntitiesState
+    parent: state
+  rss_external_entities.rss_manager:
+    class: Drupal\rss_external_entities\RssManager
+    arguments: ['@logger.factory', '@entity_type.manager']
+  rss_external_entities.rss_query:
+    class: Drupal\rss_external_entities\Query\RssQuery
+  rss_external_entities.rss_serialize:
+    class: Drupal\rss_external_entities\Serialization\RssSerialize
+    tags:
+      - { name: external_entity_response_decoder }

@@ -1,0 +1,5 @@
+name: 'MHI RSS'
+description: 'Provides hooks and other things for MHI website.'
+type: module
+package: MHI
+core_version_requirement: ^9 || ^10

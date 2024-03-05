@@ -1,0 +1,56 @@
+contact_module_ajax.Contactmanage:
+  path: '/admin/structure/contact_module_ajax/Contacts/manageContacts'
+  defaults:
+    _title: 'Contacts'
+    _controller: '\Drupal\contact_module_ajax\Controller\ContactController::manageContacts'
+  requirements:
+    _permission: 'access contact'
+
+contact_module_ajax.getDataAjax.call:
+  path: '/call/ajax/contact/get'
+  defaults:
+    _controller: '\Drupal\contact_module_ajax\Controller\ContactCrudData::getContactAjax'
+  requirements:
+    _permission: 'access content'
+
+contact_module_ajax.insertDataAjax.call:
+  path: '/call/ajax/contact/insert'
+  defaults:
+    _controller: '\Drupal\contact_module_ajax\Controller\ContactCrudData::insertContactAjax'
+    _title: 'Insert Contact Data'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+contact_module_ajax.updateDataAjax.call:
+  path: '/call/ajax/contact/update'
+  defaults:
+    _controller: '\Drupal\contact_module_ajax\Controller\ContactCrudData::updateContactAjax'
+    _title: 'Update Contact Data'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+    
+contact_module_ajax.delete_Contact_ajax:
+  path: '/del/contact_module_ajax/Contacts/delete/{cid}'
+  defaults:
+    _controller: '\Drupal\contact_module_ajax\Controller\ContactController::deleteContactAjax'
+    _title: 'Delete Contact'
+  requirements:
+    _permission: 'access contact'
+
+contact_module_ajax.edit_Contact_ajax:
+  path: '/ajax/contact_module_ajax/Contacts/edit/{cid}'
+  defaults:
+    _controller: '\Drupal\contact_module_ajax\Controller\ContactController::editContactAjax'
+    _title: 'Edit Contact'
+  requirements:
+    _permission: 'access contact'
+
+# contact_module_ajax.pagination_Contact_ajax:
+#   path: '/ajax/contact_module_ajax/table/page/{no}'
+#   defaults:
+#     _controller: '\Drupal\contact_module_ajax\Controller\ContactController::tablePaginationAjax'
+#     _title: 'Table Pagination Contact'
+#   requirements:
+#     _permission: 'access contact'

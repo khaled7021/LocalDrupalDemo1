@@ -1,0 +1,71 @@
+<?php
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+
+/**
+ * @file
+ * Contains contact_module_ajax.module.
+ */
+
+ /**
+* Implements hook_theme().
+*/
+
+function contact_module_ajax_theme($existing,$type,$theme,$path)
+{
+return[
+ 'contact_table'=>[
+  'template'=>'contact-table',
+  'variables'=>['rows'=>[]],
+]];
+}
+
+/**
+   * {@inheritdoc}
+   * Get Pager
+   */
+  function getPager_ajax() {
+
+   $query = \Drupal::database()->select('contact_ajax', 't');
+   $query->addExpression('COUNT(*)');
+   $count = $query->execute()->fetchField();
+   $count = ceil($count/6);
+
+ // $page_link = Url::fromUserInput('/ajax/contact_module_ajax/table/page/0');
+ $page_link = Url::fromUserInput('#');
+ $page_link = Link::fromTextAndUrl('<<', $page_link);
+ $page_link = $page_link->toRenderable();
+ $page_link['#attributes'] = ['class'=>['use-ajax', 'left-pagination'] , 'page_no' => 0];
+ $out = \Drupal::service('renderer')->render($page_link);
+
+  for($i = 0; $i < $count; $i++) {
+   // $page = Url::fromUserInput('/ajax/contact_module_ajax/table/page/'.$i);
+   $page = Url::fromUserInput('#');
+   $pageLink =  Link::fromTextAndUrl($i, $page);
+   $pageLink = $pageLink->toRenderable();
+   $pageLink['#attributes'] = ['class'=>['use-ajax','pagination-link'] , 'page_no' => $i];
+   $out = \Drupal::service('renderer')->render($pageLink);
+  }
+  $last_page = $count-1;
+  // $page_link_last = Url::fromUserInput('/ajax/contact_module_ajax/table/page/'.$last_page);
+  $page_link_last = Url::fromUserInput('#');
+  $page_link_last = Link::fromTextAndUrl('>>', $page_link_last);
+  $page_link_last = $page_link_last->toRenderable();
+  $page_link_last['#attributes'] = ['class'=>['use-ajax','right-pagination'], 'page_no' => $last_page];
+   $out = \Drupal::service('renderer')->render($page_link_last);
+  return $out;
+
+}
+
+function get_contact_form_ajax() {
+
+	$render_array = \Drupal::formBuilder()->getForm('Drupal\contact_module_ajax\Form\ContactForm');
+	return $render_array;
+}
+
+function contact_module_ajax_element_info_alter(array &$types) {
+
+  if (isset($types['table'])) {
+    $types['table']['#attached']['library'][] = 'contact_module_ajax/contact_module_ajax';
+  }
+}

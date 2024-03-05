@@ -1,0 +1,13 @@
+name: DN Field
+
+type: module
+
+description: Custom Field Sample by ksk.
+
+package: Custom
+
+version: 1.0
+
+core: 10.x
+
+core_version_requirement: ^9 || ^10

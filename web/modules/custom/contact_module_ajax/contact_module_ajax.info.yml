@@ -1,0 +1,7 @@
+name: Contact Data Using Ajax
+type: module
+description: Contact Ajax add/edit/delete  module.
+package: Custom
+version: 1.0
+core: 10.x
+core_version_requirement: ^9 || ^10

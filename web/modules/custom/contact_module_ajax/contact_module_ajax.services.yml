@@ -1,0 +1,4 @@
+services:
+  contact_module_ajax.data_handler_info:
+    class: 'Drupal\contact_module_ajax\Services\ContactCrudOp'
+    arguments: ['@database']

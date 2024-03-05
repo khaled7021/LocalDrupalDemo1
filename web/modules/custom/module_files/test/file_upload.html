@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>Title of the document</title>
+<script>
+
+$( document ).ready(function() {
+
+$('#first_form').submit(function(e) {
+    e.preventDefault();
+ var myInput = document.getElementById('myfile');
+ //get token
+ /*fetch('http://digitalnadeemlocaltest.com/user/login?_format=json', {
+      method: "POST",
+	    body: '{"name": "admin","pass": "admin123"}'
+    }).then(token => {
+        console.log("token--"+token);
+       
+      }).catch(err => {
+        console.log(err);
+      });*/
+	  //{"current_user":{"uid":"1","roles":["authenticated","administrator"],"name":"admin"},"csrf_token":"yF7EntfJzsHxZekPaiQ9LK4PYYUcFQtxuy3pGvporQw","logout_token":"6jM1CjHfnSqdfa9tEMYzFon-6zRPmI3YEix0r-eYC3M"}
+ 
+ fetch('http://digitalnadeemlocaltest.com/user/login?_format=json', { // Your POST endpoint
+    method: 'POST',
+    
+    body:'{"name": "admin","pass": "admin123"}' // This is your file object
+  }).then(
+    response => response.json() // if the response is a JSON object
+  ).then(
+    success => console.log(success) // Handle the success response object
+  ).catch(
+    error => console.log(error) // Handle the error response object
+  );  
+    
+  });
+ 
+ //get token
+ 
+ 
+/*/fetch('http://digitalnadeemlocaltest.com/file/upload/node/article/field_image?_format=json', { // Your POST endpoint
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/octet-stream',
+        'Accept':'application/vnd.api+json',
+        'X-CSRF-Token':'yF7EntfJzsHxZekPaiQ9LK4PYYUcFQtxuy3pGvporQw',
+        'Content-Disposition': 'file; filename="filename.jpg"',
+		'Authorization':'Basic YWRtaW46YWRtaW4xMjM='
+		
+    },
+    body: myInput.files[0] // This is your file object
+  }).then(
+    response => response.json() // if the response is a JSON object
+  ).then(
+    success => console.log(success) // Handle the success response object
+  ).catch(
+    error => console.log(error) // Handle the error response object
+  );  */
+    
+  });
+  });
+</script>
+</head>
+<body>
+<div class="container">
+ 
+  <h2>Registration</h2>
+  <form action="" method="post" name="registration" id = "first_form">
+ 
+    <input type="file" id="myfile" name="myfile">
+ 
+    <button type="submit" id="#sbbutton">submit</button>
+ 
+  </form>
+</div>
+ 
+</body>
+</html>

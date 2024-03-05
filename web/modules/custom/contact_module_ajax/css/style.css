@@ -1,0 +1,96 @@
+.pagination {
+  display: inline-block;
+  /* margin-left: 45%; */
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #1e5c90;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #0071b8;}
+
+.contact-common-form .form-item {
+  width: 13%;
+  margin-right: 1%;
+  float: left;
+}
+
+.contact-common-form .table-responsive {
+  clear: left;
+}
+
+#contact-table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#contact-table td, #contact-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#contact-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#contact-table tr:hover {background-color: #ddd;}
+
+#contact-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+div#error-message { 
+  color:red;
+}
+
+/* Responsiveness */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 600px) and (orientation: portrait){
+  #div-fname .js-form-item.form-item.js-form-type-textfield.form-type-textfield.js-form-item-fullname.form-item-fullname{
+    width: initial;
+  }
+.js-form-item.form-item.js-form-type-textfield.form-type-textfield.js-form-item-email.form-item-email {
+  width: initial;
+}
+.js-form-item.form-item.js-form-type-textfield.form-type-textfield.js-form-item-phone.form-item-phone {
+  width: initial;
+}
+}
+
+#contactTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 100%;
+  font-size:100%;
+}
+
+#contactTable td, #contactTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#contactTable tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#contactTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}

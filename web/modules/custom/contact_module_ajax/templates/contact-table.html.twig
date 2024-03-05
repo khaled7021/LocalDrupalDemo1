@@ -1,0 +1,31 @@
+{{ attach_library('contact_module_ajax/global-styles') }}
+{{ attach_library('core/drupal.dialog.ajax') }}
+
+<html>
+<head>
+</head>
+<body>
+<div class="container">
+<table id="contactTable" style="color:black;">
+  <thead><tr>
+      <th>Id</th>
+      <th>Fullname</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Operation</th>
+      </tr></thead>
+
+  {% for row in rows %}
+  <tr>
+      <td>{{ row.id }}</td>
+      <td>{{ row.fullname }}</td>
+      <td>{{ row.email }}</td>
+      <td>{{ row.phone }}</td>
+      <td><a class="use-ajax contact-edit-data" data-dialog-type='modal' data-dialog-options="{&quot;width&quot;:800}" id={{ row.id }} href="#">Edit </a></td>
+      <td><a class="use-ajax contact-delete-data" data-dialog-type='modal' data-dialog-options="{&quot;width&quot;:800}" id={{ row.id }} href="#">Delete </a></td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+block.settings.external_rss:
+  type: mapping
+  label: 'External rss settings'
+  mapping:
+    storage:
+      type: string
+      label: 'Data storage'
+    description:
+      type: text_format
+      label: 'Description'
+    numbers_shown:
+      type: integer
+      label: 'Numbers shown'
+    items_per_row:
+      type: integer
+      label: 'Items per row'

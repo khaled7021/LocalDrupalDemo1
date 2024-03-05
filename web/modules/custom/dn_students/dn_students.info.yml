@@ -1,0 +1,7 @@
+name: DN Students
+type: module
+description: Students Ajax add/edit/delete  module by ksk.
+package: Custom
+version: 1.0
+core: 10.x
+core_version_requirement: ^9 || ^10

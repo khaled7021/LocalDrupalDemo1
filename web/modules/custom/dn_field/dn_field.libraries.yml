@@ -1,0 +1,4 @@
+colorpicker:
+  version: 1.x
+  js:
+    js/field_color.js: {}

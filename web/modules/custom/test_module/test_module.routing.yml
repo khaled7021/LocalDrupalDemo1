@@ -1,0 +1,7 @@
+test_module.create_form:
+  path: '/admin/structure/test_module/test/ajaxForm'
+  defaults:
+    _title: 'Students'
+    _form: '\Drupal\test_module\Form\ContactForm'
+  requirements:
+    _permission: 'administer Students'
